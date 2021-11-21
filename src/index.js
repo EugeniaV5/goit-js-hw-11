@@ -1,5 +1,4 @@
 import './sass/main.scss';
-// import axios from 'axios';
 import Notiflix from 'notiflix';
 import ImagesApiService from './js/fetchImages';
 import SimpleLightbox from 'simplelightbox';
@@ -61,16 +60,6 @@ async function onLoadMoreClick() {
   }
 }
 
-// async function onButtonClick() {
-//   try {
-//     const query = refs.inputEl.value.trim();
-//     const images = await API.fetchImages(query);
-//     renderMarkup(images);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
-
 function renderMarkup({ data }) {
   const markup = data.hits
     .map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
@@ -78,16 +67,16 @@ function renderMarkup({ data }) {
   <img src="${webformatURL}" alt="${tags}" loading="lazy" class="card-img"/>  
   <div class="info">
     <p class="info-item">
-      <b>Likes ${likes}</b>
+      <b>Likes </b>${likes}
     </p>
     <p class="info-item">
-      <b>Views ${views}</b>
+      <b>Views </b>${views}
     </p>
     <p class="info-item">
-      <b>Comments ${comments}</b>
+      <b>Comments </b>${comments}
     </p>
     <p class="info-item">
-      <b>Downloads ${downloads}</b>
+      <b>Downloads </b>${downloads}
     </p>
   </div>
   </a>
@@ -100,10 +89,6 @@ function renderMarkup({ data }) {
   makeLightBox();
 }
 
-// function showError(error) {
-//   console.log(error.message);
-// }
-
 function clearMarkup() {
   refs.galleryEl.innerHTML = '';
 }
@@ -111,7 +96,3 @@ function clearMarkup() {
 function makeLightBox() {
   const modalWin = new SimpleLightbox('.gallery__item');
 }
-
-// function hideLoadMoreBtn() {
-//   refs.loadMoreBtnEl.classList.add('is-hidden');
-// }
