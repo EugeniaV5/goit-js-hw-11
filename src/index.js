@@ -55,6 +55,7 @@ async function onLoadMoreClick() {
       return;
     }
     renderMarkup({ data });
+    // pageScroll();
   } catch (error) {
     console.log(error.message);
   }
@@ -96,3 +97,14 @@ function clearMarkup() {
 function makeLightBox() {
   const modalWin = new SimpleLightbox('.gallery__item');
 }
+
+// function pageScroll() {
+//   const { height: cardHeight } = document
+//     .querySelector('.gallery')
+//     .firstElementChild.getBoundingClientRect();
+
+//   window.scrollBy({
+//     top: cardHeight * 11,
+//     behavior: 'smooth',
+//   });
+// }
