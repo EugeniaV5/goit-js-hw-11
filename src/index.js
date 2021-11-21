@@ -19,7 +19,7 @@ async function onFormSubmit(e) {
   clearMarkup();
   imagesApiService.query = e.currentTarget.elements.searchQuery.value;
   if (imagesApiService.query === '') {
-    Notiflix.Notify.info('Please, type your search query');
+    Notiflix.Notify.info('Please enter your search term');
     clearMarkup();
     return;
   }
@@ -50,7 +50,7 @@ async function onLoadMoreClick() {
   try {
     const { data } = await imagesApiService.fetchImages();
     if (imagesApiService.page > data.totalHits / imagesApiService.perPage) {
-      Notiflix.Notify.info('Were sorry, but you have reached the end of search results.');
+      Notiflix.Notify.info('We are sorry, but you have reached the end of search results.');
       refs.loadMoreBtnEl.classList.add('is-hidden');
       return;
     }
