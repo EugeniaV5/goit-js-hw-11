@@ -36,7 +36,7 @@ async function onFormSubmit(e) {
     }
 
     if (data.hits.length === 0) {
-      Notiflix.Notify.info(
+      Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again',
       );
       refs.loadMoreBtnEl.classList.add('is-hidden');
